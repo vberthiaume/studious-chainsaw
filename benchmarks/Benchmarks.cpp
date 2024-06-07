@@ -22,19 +22,19 @@ TEST_CASE ("Boot performance")
     //     meter.measure ([&] (int i) { storage[(size_t) i].destruct(); });
     // };
 
-    BENCHMARK_ADVANCED ("Editor open and close")
-    (Catch::Benchmark::Chronometer meter)
-    {
-        auto gui = juce::ScopedJuceInitialiser_GUI {};
+    // BENCHMARK_ADVANCED ("Editor open and close")
+    // (Catch::Benchmark::Chronometer meter)
+    // {
+    //     auto gui = juce::ScopedJuceInitialiser_GUI {};
 
-        PluginProcessor plugin;
+    //     PluginProcessor plugin;
 
-        // due to complex construction logic of the editor, let's measure open/close together
-        meter.measure ([&] (int /* i */) {
-            auto editor = plugin.createEditorIfNeeded();
-            plugin.editorBeingDeleted (editor);
-            delete editor;
-            return plugin.getActiveEditor();
-        });
-    };
+    //     // due to complex construction logic of the editor, let's measure open/close together
+    //     meter.measure ([&] (int /* i */) {
+    //         auto editor = plugin.createEditorIfNeeded();
+    //         plugin.editorBeingDeleted (editor);
+    //         delete editor;
+    //         return plugin.getActiveEditor();
+    //     });
+    // };
 }
